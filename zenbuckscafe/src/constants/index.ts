@@ -56,15 +56,19 @@ export const coffeeCarousel = [
   {
     name: "Mocha",
     imgPath: "/components/assets/coffeeCarousel2.png",
-    description:
-      "A chocolate-flavored variant of a latte, made with espresso and steamed milk.",
+    description: "A chocolate-flavored variant of a latte, made with espresso.",
     price: 130,
   },
   {
     name: "Macchiato",
     imgPath: "/components/assets/coffeeCarousel3.jpg",
-    description:
-      "An espresso coffee drink with a small amount of steamed milk or milk foam.",
+    description: "An espresso coffee drink with a small amount of steamed milk",
+    price: 120,
+  },
+  {
+    name: "Macchiato",
+    imgPath: "/components/assets/coffeeCarousel3.jpg",
+    description: "An espresso coffee drink with a small amount of steamed milk",
     price: 120,
   },
 ];
