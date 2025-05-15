@@ -17,7 +17,7 @@ const Carousel = () => {
       {coffeeCarousel.map((d) => (
         <div
           key={d.name}
-          className="bg-[#FFDBB5] h-[400px] text-[#543310] pt-3 pb-3rounded-xl"
+          className="bg-[#FFDBB5] h-[400px] text-[#543310] pt-3 pb-3 rounded-xl"
         >
           <div className=" flex justify-center items-center">
             <img
