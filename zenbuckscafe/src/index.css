@@ -7,6 +7,14 @@ html {
   font-style: normal;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 .slick-slide > div {
-  margin: 0 8px;
+  margin: 0 15px; /* Adjust this value for your desired gap */
+}
+.slick-list {
+  margin: 0 -10px; /* Compensate for the margin on slides */
 }

@@ -2,7 +2,7 @@ import Hero from "../../components/assets/Hero.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-screen h-screen pt-20">
+    <section className="relative w-full h-screen pt-20">
       <div className="absolute inset-0 w-full h-full">
         <img
           src={Hero}

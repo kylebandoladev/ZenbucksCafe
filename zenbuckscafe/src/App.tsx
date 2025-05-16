@@ -2,6 +2,7 @@ import HeroSection from "./sections/HeroSection";
 import Navbar from "../components/Navbar";
 import ShowcaseSection from "./sections/ShowcaseSection";
 import BestSellerSection from "./sections/BestSellerSection";
+import DirectionSection from "./sections/DirectionSection";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <HeroSection />
       <ShowcaseSection />
       <BestSellerSection />
+      <DirectionSection />
     </>
   );
 };

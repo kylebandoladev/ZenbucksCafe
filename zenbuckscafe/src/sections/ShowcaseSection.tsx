@@ -2,8 +2,8 @@ import { coffeeShowcase } from "../constants";
 
 const ShowcaseSection = () => {
   return (
-    <section className="text-white bg-[#74512D] py-8 w-screen">
-      <div className="text-center  lg:px-100">
+    <section className="text-white bg-[#74512D] py-8 w-full">
+      <div className="text-center lg:px-100">
         <h1 className="md:text-xl  font-bold">
           Fresh and <span className="text-amber-200">Tasty Coffee</span>
         </h1>
