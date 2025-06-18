@@ -48,27 +48,34 @@ const Carousel = ({ title = "Best Sellers" }: CarouselProps) => {
         {coffeeCarousel.map((d) => (
           <div
             key={d.name}
-            className="bg-[#FFDBB5] h-[400px] text-[#543310] pt-3 pb-3 rounded-xl mx-2" // Added mx-2 for horizontal gap
+            className="bg-[#FFDBB5] h-[400px] text-[#543310] pt-3 pb-3 rounded-xl mx- flex flex-col"
           >
-            <div className="flex justify-center items-center h-[200px]">
-              {" "}
-              {/* Fixed height container */}
+            {/* Image container with fixed height */}
+            <div className="flex justify-center items-center h-[200px] ">
               <img
                 src={d.imgPath}
                 alt={d.name}
-                className="h-full w-full object-cover rounded-xl" /* This will make images fill container while maintaining aspect ratio */
+                className="h-full w-full object-contain rounded-xl"
                 style={{
                   maxWidth: "200px",
                   maxHeight: "200px",
-                }} /* Fixed dimensions */
+                }}
               />
             </div>
-            <div className="flex flex-col justify-center gap-4 p-4">
-              <h2 className="text-2xl font-bold">{d.name}</h2>
-              <p className="">{d.description}</p>
-              <div className="flex justify-between">
+
+            {/* Content container with flex-grow to push button to bottom */}
+            <div className="flex flex-col justify-between flex-grow p-4 gap-3">
+              <div>
+                <h2 className="text-2xl font-bold text-center">{d.name}</h2>
+                <p className="text-center mt-2 min-h-[60px] flex items-center justify-center">
+                  {d.description}
+                </p>
+              </div>
+
+              {/* Price and button container */}
+              <div className="flex justify-between items-center mt-auto">
                 <p className="text-2xl font-bold">{`₱${d.price}`}</p>
-                <button className="text-lg fontbold px-6 py-1 bg-[#543310] border-none rounded-lg text-white">
+                <button className="text-lg font-bold px-6 py-2 bg-[#543310] border-none rounded-lg text-white hover:bg-[#3a240b] transition-colors">
                   Order Now
                 </button>
               </div>
