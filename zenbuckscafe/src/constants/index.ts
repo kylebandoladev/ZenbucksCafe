@@ -58,24 +58,24 @@ export const coffeeCarousel: CoffeeItem[] = [
     name: "Late",
     imgPath: "/components/assets/coffeeCarousel1.png",
     description: "A concentrated coffee brewed by forcing hot water.",
-    price: "P150",
+    price: "150",
   },
   {
     name: "Mocha",
     imgPath: "/components/assets/coffeeCarousel2.png",
     description: "A chocolate-flavored variant of a latte, made with espresso.",
-    price: "P130",
+    price: "130",
   },
   {
     name: "Macchiato",
     imgPath: "/components/assets/coffeeCarousel3.jpg",
     description: "An espresso coffee drink with a small amount of steamed milk",
-    price: "P120",
+    price: "120",
   },
   {
     name: "Macchiato",
     imgPath: "/components/assets/coffeeCarousel3.jpg",
     description: "An espresso coffee drink with a small amount of steamed milk",
-    price: "P120",
+    price: "120",
   },
 ];

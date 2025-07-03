@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import ShowcaseSection from "./sections/ShowcaseSection";
 import BestSellerSection from "./sections/BestSellerSection";
 import DirectionSection from "./sections/DirectionSection";
+import FooterSection from "./sections/FooterSection";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <ShowcaseSection />
       <BestSellerSection />
       <DirectionSection />
+      <FooterSection />
     </>
   );
 };
