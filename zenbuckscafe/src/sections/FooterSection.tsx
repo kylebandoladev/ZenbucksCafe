@@ -3,7 +3,7 @@ import { Facebook, Instagram, Linkedin, X } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="bg-[#543310]">
-      <div className="flex justify-between container mx-auto  py-15 text-white">
+      <div className="flex justify-between container  text-white">
         <h2 className="text-2xl font-semibold">Zenbucks Cafe</h2>
 
         <div className="flex flex-col justify-center">
