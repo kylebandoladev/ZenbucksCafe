@@ -1,37 +1,131 @@
-import { navLinks } from "../src/constants";
-import logo from "./assets/logo.png";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
+import logo from "/images/logo.png";
+import { useState } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
+  const [activeSection, setActiveSection] = useState("");
+
+  const handleNavClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+
+    // Smooth scroll to section
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useGSAP(() => {
+    // Nav background animation
+    gsap.fromTo(
+      "nav",
+      {
+        backgroundColor: "transparent",
+      },
+      {
+        backgroundColor: "#00000050",
+        backdropFilter: "blur(10px)",
+        duration: 1,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: "nav",
+          start: "bottom top",
+        },
+      }
+    );
+
+    // Section detection
+    gsap.utils.toArray<HTMLElement>("section").forEach((section) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top center",
+        end: "bottom center",
+        onToggle: ({ isActive }) => {
+          if (isActive) {
+            setActiveSection(section.id);
+          }
+        },
+      });
+    });
+  });
+
+  const linkStyles =
+    "cursor-pointer text-nowrap md:text-base text-sm transition-all duration-50 px-2 py-1";
+  const activeStyles = "border-b-4 border-white";
+  const hoverStyles = "hover:border-b-4 hover:border-white";
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 text-white">
-      <div
-        className="flex items-center justify-between border border-white/10 max-w-screen-xl mx-auto mt-5 px-7
-      py-2 rounded-4xl font-bold backdrop-blur-lg"
-      >
-        <div className="flex gap-2">
-          <img src={logo} alt="" className="size-15" />
-          <a href="" className="flex items-center text-xl">
-            Zenbucks
-          </a>
-        </div>
-        <nav className="desktop">
-          <ul className="flex space-x-5">
-            {navLinks.map(({ link, name }) => (
-              <li key={name} className="group">
-                <a href={link}>
-                  <span>{name}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <a href="#contact" className="">
-          <div className="">
-            <span>Contact Us</span>
-          </div>
-        </a>
+    <nav>
+      <div>
+        <Link to="/" className="flex items-center gap-2">
+          <img src={logo} alt="logo" className="h-12" />
+          <p className="font-modern-negra">Zenbucks Cafe</p>
+        </Link>
+        <ul>
+          <li>
+            <a
+              href="#menu"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("menu");
+              }}
+              className={`${linkStyles} ${hoverStyles} ${
+                activeSection === "menu" ? activeStyles : ""
+              }`}
+            >
+              Menu
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("about");
+              }}
+              className={`${linkStyles} ${hoverStyles} ${
+                activeSection === "about" ? activeStyles : ""
+              }`}
+            >
+              About Us
+            </a>
+          </li>
+          <li>
+            <a
+              href="#location"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("location");
+              }}
+              className={`${linkStyles} ${hoverStyles} ${
+                activeSection === "location" ? activeStyles : ""
+              }`}
+            >
+              Location
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contacts"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("contacts");
+              }}
+              className={`${linkStyles} ${hoverStyles} ${
+                activeSection === "contacts" ? activeStyles : ""
+              }`}
+            >
+              Contacts
+            </a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </nav>
   );
 };
 

@@ -1,8 +1,8 @@
-import { Facebook, Instagram, Linkedin, X } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#543310]">
+    <footer className="bg-black py-10 px-10">
       <div className="flex justify-between container  text-white">
         <h2 className="text-2xl font-semibold">Zenbucks Cafe</h2>
 
@@ -41,16 +41,11 @@ const Footer = () => {
 
         <div>
           <h2 className="text-xl font-semibold mb-4">Social Media</h2>
-          <div className="flex justify-between">
-            <a>
-              <X />
-            </a>
+          <div className="flex gap-2">
             <a>
               <Facebook />
             </a>
-            <a>
-              <Linkedin />
-            </a>
+
             <a>
               <Instagram />
             </a>

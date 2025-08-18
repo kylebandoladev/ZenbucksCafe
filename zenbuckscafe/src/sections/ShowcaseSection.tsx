@@ -1,35 +1,88 @@
-import { coffeeShowcase } from "../constants";
+import { useMediaQuery } from "react-responsive";
+import { featureLists, goodLists } from "../constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const ShowcaseSection = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  useGSAP(() => {
+    const start = isMobile ? "top 20%" : " top top";
+
+    const maskTimeLine = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#art",
+        start,
+        end: "bottom bottom",
+        scrub: 1.5,
+        pin: true,
+      },
+    });
+    maskTimeLine
+      .to(".will-fade", {
+        opacity: 0,
+        stagger: 0.2,
+        ease: "power1.inOut",
+      })
+      .to(".masked-img", {
+        scale: 1.3,
+        maskPosition: "center",
+        maskSize: "300%",
+        duration: 1,
+        ease: "power1.inOut",
+      })
+      .to("#masked-content", {
+        opacity: 1,
+        duration: 1,
+        ease: "power1.inOut",
+      });
+  });
+
   return (
-    <section className="text-white bg-[#74512D] py-8 w-full">
-      <div className="text-center lg:px-100">
-        <h1 className="md:text-xl  font-bold">
-          Fresh and <span className="text-amber-200">Tasty Coffee</span>
-        </h1>
-        <p className="">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. In magnam,
-          doloremque autem enim vero iure, nihil soluta eligendi labore itaque
-          sint molestiae, vel nobis cupiditate sed molestias cumque eum impedit?
-        </p>
-      </div>
-      <div className="items-center flex justify-between mt-5">
-        {coffeeShowcase.map(({ name, imgPath, description }) => (
-          <div
-            key={name}
-            className="flex flex-col items-center justify-center text-center w-1/3 h-1/2 p-4"
-          >
+    <div id="art">
+      <div className="container mx-auto h-full pt-20">
+        <h2 className="will-fade"> Our Menu </h2>
+        <div className="content">
+          <ul className="space-y-4 will-fade">
+            {goodLists.map((feature, index) => (
+              <li key={index} className="flex items-center gap-2">
+                <img src="/images/check.png" alt="" />
+                <p>{feature}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="cocktail-img mt-5">
             <img
-              src={imgPath}
-              alt={name}
-              className="w-48 h-48 object-cover rounded-lg"
+              src="/images/under-img.png"
+              alt="cocktail"
+              className="abs-center masked-img size-full object-contain"
             />
-            <h2 className="text-xl font-bold mt-4">{name}</h2>
-            <p className="text-sm text-gray-300 lg:px-20">{description}</p>
           </div>
-        ))}
+          <ul className="space-y-4 will-fade">
+            {featureLists.map((feature, index) => (
+              <li
+                key={index}
+                className="flex items-center justify-start  gap-2"
+              >
+                <img src="/images/check.png" alt="" />
+                <p className="md:w-fit w-60">{feature}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="masked-container">
+          <h2 className="will-fade">Sip-Worth Perfection</h2>
+          <div id="masked-content">
+            <h3>Is Made With Love, Poured with Passion</h3>
+            <p>
+              This isn't just a drink. It's a carefully crafted made just for
+              you.
+            </p>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
+
 export default ShowcaseSection;
