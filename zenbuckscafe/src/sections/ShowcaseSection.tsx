@@ -51,7 +51,7 @@ const ShowcaseSection = () => {
               </li>
             ))}
           </ul>
-          <div className="cocktail-img mt-5">
+          <div className="cocktail-img mt-15">
             <img
               src="/images/under-img.png"
               alt="cocktail"

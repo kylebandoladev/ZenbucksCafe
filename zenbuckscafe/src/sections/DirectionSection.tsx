@@ -1,8 +1,9 @@
-import { Facebook, Instagram } from "lucide-react";
-
 const DirectionSection = () => {
   return (
-    <section className=" text-white md:mt-20 mt-0 text-center w-full py-40 px-15 radial-gradient items-center">
+    <section
+      id="location"
+      className=" text-white md:mt-20 mt-0 text-center w-full py-40 px-15 radial-gradient items-center"
+    >
       <div className="w-full flex flex-col mx-6">
         <h2 className="lg:text-6xl 2xl:text-8xl text-5xl  md:translate-y-0 translate-y-5 font-modern-negra">
           Where to Find Us
@@ -18,18 +19,11 @@ const DirectionSection = () => {
               Blk. 4, Brgy. Sta Ana, Taytay, Philippines
             </p>
             <h3 className="text-xl uppercase mt-4 mb-2">Opening Hours</h3>
-            <p>Monday - Sunday: 5:00 PM - 12:00 PM</p>
+            <p className="lg:text-2xl 2xl:text-3xl text-sm">
+              Monday - Sunday: 5:00 PM - 12:00 PM
+            </p>
             <h3 className="text-xl uppercase mt-4 mb-2">Our Number</h3>
-            <p>09555335909</p>
-            <h3 className="text-xl uppercase mt-4 mb-2">Socials</h3>
-            <div className="flex items-center gap-2">
-              <a href="">
-                <Facebook />
-              </a>
-              <a href="">
-                <Instagram />
-              </a>
-            </div>
+            <p className="lg:text-2xl 2xl:text-3xl text-sm">09555335909</p>
           </div>
 
           <p>
