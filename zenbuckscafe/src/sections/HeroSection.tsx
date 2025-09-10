@@ -54,7 +54,7 @@ const HeroSection = () => {
           lovers.
         </p>
         <button className="para px-5 py-3 bg-amber-500 text-xl font-bold rounded-4xl hover:bg-amber-600 transition-colors duration-400 opacity-0 translate-y-10">
-          Explore Menu
+          <a href="#menu">Explore Menu</a>
         </button>
       </div>
     </section>

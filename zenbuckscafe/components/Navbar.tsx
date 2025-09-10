@@ -109,20 +109,6 @@ const Navbar = () => {
               Location
             </a>
           </li>
-          <li>
-            <a
-              href="#contacts"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("contacts");
-              }}
-              className={`${linkStyles} ${hoverStyles} ${
-                activeSection === "contacts" ? activeStyles : ""
-              }`}
-            >
-              Contacts
-            </a>
-          </li>
         </ul>
       </div>
     </nav>
